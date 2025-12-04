@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools. | こどもと保護者と教員のための合理的配慮ガイドブック 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow: #F5C518;
+            --yellow-light: #FFF9E6;
+            --yellow-dark: #E5B508;
+            --coral: #E85A4F;
+            --coral-light: #FFF0EE;
+            --text: #2D2D2D;
+            --text-light: #666666;
+            --white: #FFFFFF;
+            --bg: #FFFEF7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* ==================== */
+        /* HERO SECTION */
+        /* ==================== */
+        .hero {
+            min-height: 100vh;
+            background: var(--yellow);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 80%;
+            height: 150%;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.3) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .nav {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .nav-logo {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: opacity 0.2s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+
+        .hero-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--text);
+            color: var(--yellow);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero-title {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .hero-title .highlight {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero-title .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: 0.1em;
+            left: 0;
+            right: 0;
+            height: 0.3em;
+            background: var(--coral);
+            z-index: -1;
+            transform: skewX(-3deg);
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text);
+            opacity: 0.85;
+            margin-bottom: 2.5rem;
+            line-height: 2;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--text);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: var(--white);
+            color: var(--text);
+            border: 2px solid var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: floatIn 1s ease-out 0.4s both;
+        }
+
+        .book-mockup {
+            position: relative;
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+            transition: transform 0.5s ease;
+        }
+
+        .book-mockup:hover {
+            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+        }
+
+        .book-cover {
+            width: 320px;
+            height: 450px;
+            background: var(--yellow);
+            border: 4px solid var(--text);
+            border-radius: 4px 16px 16px 4px;
+            box-shadow: 
+                -20px 20px 40px rgba(0,0,0,0.15),
+                inset -5px 0 20px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 20px;
+            background: linear-gradient(90deg, rgba(0,0,0,0.1) 0%, transparent 100%);
+        }
+
+        .book-logo {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 900;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .book-tagline {
+            font-size: 0.9rem;
+            text-align: center;
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        .book-year {
+            position: absolute;
+            bottom: 2rem;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            opacity: 0.5;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text);
+            font-size: 0.85rem;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* ==================== */
+        /* ABOUT SECTION */
+        /* ==================== */
+        .about {
+            padding: 8rem 2rem;
+            background: var(--white);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--yellow);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-number {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--coral);
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 2;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .about-card {
+            background: var(--bg);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+        }
+
+        .about-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--yellow);
+            box-shadow: 0 20px 50px rgba(245, 197, 24, 0.15);
+        }
+
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--yellow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+        }
+
+        .about-card h3 {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .about-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.9;
+        }
+
+        /* ==================== */
+        /* FEATURES SECTION */
+        /* ==================== */
+        .features {
+            padding: 8rem 2rem;
+            background: var(--text);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .features::before {
+            content: 'Tools.';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 30vw;
+            font-weight: 900;
+            opacity: 0.03;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .features .section-number {
+            color: var(--yellow);
+        }
+
+        .features .section-desc {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateX(10px);
+        }
+
+        .feature-num {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--yellow);
+            line-height: 1;
+            opacity: 0.5;
+        }
+
+        .feature-content h3 {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-content p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ==================== */
+        /* QUESTIONNAIRE SECTION */
+        /* ==================== */
+        .questionnaire {
+            padding: 8rem 2rem;
+            background: linear-gradient(180deg, var(--coral-light) 0%, var(--white) 100%);
+        }
+
+        .questionnaire-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .questionnaire-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .questionnaire-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+        }
+
+        .questionnaire-card.child::before {
+            background: linear-gradient(90deg, #FF6B9D, #FF8A80);
+        }
+
+        .questionnaire-card.parent::before {
+            background: linear-gradient(90deg, #4A90D9, #64B5F6);
+        }
+
+        .questionnaire-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+        }
+
+        .questionnaire-tag {
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .questionnaire-card.child .questionnaire-tag {
+            background: #FFF0F5;
+            color: #FF6B9D;
+        }
+
+        .questionnaire-card.parent .questionnaire-tag {
+            background: #E3F2FD;
+            color: #4A90D9;
+        }
+
+        .questionnaire-card h3 {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .questionnaire-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .questionnaire-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .questionnaire-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .questionnaire-meta-item svg {
+            width: 18px;
+            height: 18px;
+            opacity: 0.6;
+        }
+
+        .questionnaire-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* ==================== */
+        /* CTA SECTION */
+        /* ==================== */
+        .cta {
+            padding: 8rem 2rem;
+            background: var(--yellow);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before,
+        .cta::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+        }
+
+        .cta::before {
+            top: -200px;
+            left: -100px;
+        }
+
+        .cta::after {
+            bottom: -200px;
+            right: -100px;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 5;
+        }
+
+        .cta h2 {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.85;
+        }
+
+        /* ==================== */
+        /* FOOTER */
+        /* ==================== */
+        .footer {
+            background: var(--text);
+            color: var(--white);
+            padding: 4rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-size: 2rem;
+            font-weight: 900;
+        }
+
+        .footer-info {
+            text-align: right;
+        }
+
+        .footer-info p {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-credit {
+            font-size: 0.85rem;
+            opacity: 0.5;
+        }
+
+        /* ==================== */
+        /* ANIMATIONS */
+        /* ==================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px) perspective(1000px) rotateY(-25deg) rotateX(10deg);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) perspective(1000px) rotateY(-15deg) rotateX(5deg);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* ==================== */
+        /* RESPONSIVE */
+        /* ==================== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 2rem;
+            }
+
+            .hero-text {
+                max-width: 100%;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                margin-top: 3rem;
+            }
+
+            .book-mockup {
+                transform: perspective(1000px) rotateY(0deg) rotateX(5deg);
+            }
+
+            .book-cover {
+                width: 260px;
+                height: 370px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-list {
+                grid-template-columns: 1fr;
+            }
+
+            .questionnaire-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .book-cover {
+                width: 220px;
+                height: 310px;
+            }
+
+            .book-logo {
+                font-size: 2.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-info {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HERO -->
+    <section class="hero">
+        <nav class="nav">
+            <div class="nav-logo">Tools.</div>
+            <ul class="nav-links">
+                <li><a href="#about">このガイドについて</a></li>
+                <li><a href="#features">特徴</a></li>
+                <li><a href="#questionnaire">質問票</a></li>
+            </ul>
+        </nav>
+
+        <div class="hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">2025年版 公開中</span>
+                <h1 class="hero-title">
+                    こどもの<span class="highlight">「できる」</span>を<br>
+                    一緒に見つける
+                </h1>
+                <p class="hero-subtitle">
+                    発達障がいやグレーゾーンのこどもたちが、<br>
+                    安心して学べる環境をつくるための<br>
+                    合理的配慮ガイドブック
+                </p>
+                <div class="hero-buttons">
+                    <a href="#questionnaire" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        質問票を使う
+                    </a>
+                    <a href="#about" class="btn btn-secondary">詳しく見る</a>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="book-mockup">
+                    <div class="book-cover">
+                        <div class="book-logo">Tools.</div>
+                        <p class="book-tagline">
+                            こどもと保護者と教員のための<br>
+                            合理的配慮ガイドブック
+                        </p>
+                        <span class="book-year">2025</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>SCROLL</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 5v14M19 12l-7 7-7-7"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-number">01 — ABOUT</p>
+                <h2 class="section-title">3者をつなぐツール</h2>
+                <p class="section-desc">
+                    親の「わかってほしい」、こどもの「やってみたい」、<br>
+                    教員の「わかりたい」をつなぐガイドブックです。
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">👦</div>
+                    <h3>こどものために</h3>
+                    <p>
+                        自分の夢や悩みを言葉にする練習ができる質問票。
+                        自分に合った学び方を見つけるきっかけになります。
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">👨‍👩‍👧</div>
+                    <h3>保護者のために</h3>
+                    <p>
+                        お子さんの特性を整理し、学校との話し合いに
+                        使える質問票と情報をまとめています。
+                    </p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">👩‍🏫</div>
+                    <h3>教員のために</h3>
+                    <p>
+                        ASD・ADHD・SLD・知的発達症・DCDの5つの
+                        発達特性と、具体的な配慮方法を解説しています。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-number">02 — FEATURES</p>
+                <h2 class="section-title">ガイドブックの特徴</h2>
+                <p class="section-desc">
+                    合理的配慮は「特別なお願い」ではありません。<br>
+                    一人ひとりが学びやすくなるための大切な権利です。
+                </p>
+            </div>
+
+            <div class="features-list">
+                <div class="feature-item">
+                    <span class="feature-num">01</span>
+                    <div class="feature-content">
+                        <h3>5つの発達特性をわかりやすく解説</h3>
+                        <p>ASD、ADHD、SLD、知的発達症、DCDについて、症状と周囲ができることを具体的に説明しています。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-num">02</span>
+                    <div class="feature-content">
+                        <h3>すぐに使える質問票</h3>
+                        <p>こども用（10問）と親御さん用（20問）の質問票を用意。学校との面談にそのまま活用できます。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-num">03</span>
+                    <div class="feature-content">
+                        <h3>進路選択のヒント</h3>
+                        <p>通常学級と特別支援学級の違い、小学校から高校までの進路の流れをわかりやすく図解しています。</p>
+                    </div>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-num">04</span>
+                    <div class="feature-content">
+                        <h3>当事者の視点</h3>
+                        <p>ADHD当事者である著者が、自身の経験をもとに「あのとき欲しかった配慮」を盛り込んでいます。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUESTIONNAIRE -->
+    <section class="questionnaire" id="questionnaire">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-number">03 — QUESTIONNAIRE</p>
+                <h2 class="section-title">デジタル質問票</h2>
+                <p class="section-desc">
+                    ガイドブックの質問票をウェブで回答できます。<br>
+                    回答は保存・印刷して学校との面談に活用できます。
+                </p>
+            </div>
+
+            <div class="questionnaire-grid">
+                <div class="questionnaire-card child">
+                    <span class="questionnaire-tag">こども向け</span>
+                    <h3>きみのための しつもんひょう</h3>
+                    <p>
+                        自分の夢や好きなこと、学校で困っていることを
+                        書き出すための質問票です。ふりがな付きで、
+                        小学生でも自分で答えられます。
+                    </p>
+                    <div class="questionnaire-meta">
+                        <div class="questionnaire-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            約10分
+                        </div>
+                        <div class="questionnaire-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                            全10問
+                        </div>
+                    </div>
+                    <a href="child_questionnaire.html" class="btn btn-primary">質問票をはじめる →</a>
+                </div>
+
+                <div class="questionnaire-card parent">
+                    <span class="questionnaire-tag">保護者向け</span>
+                    <h3>親御さんへの質問票</h3>
+                    <p>
+                        お子さんの課題や得意なところ、必要な配慮、
+                        将来のイメージなどを整理するための質問票です。
+                        学校との情報共有にご活用ください。
+                    </p>
+                    <div class="questionnaire-meta">
+                        <div class="questionnaire-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                            約20分
+                        </div>
+                        <div class="questionnaire-meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 11l3 3L22 4"/>
+                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                            </svg>
+                            全20問
+                        </div>
+                    </div>
+                    <a href="index.html" class="btn btn-primary">質問票をはじめる →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>早めの相談、合意の記録、<br>計画的な見直しを合言葉に。</h2>
+            <p>今日から一緒に進めていきましょう。</p>
+            <a href="#questionnaire" class="btn btn-primary">質問票を使ってみる</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">Tools.</div>
+            <div class="footer-info">
+                <p>こどもと保護者と教員のための合理的配慮ガイドブック 2025</p>
+                <p class="footer-credit">
+                    著：矢野 太一 ｜ 監修：道尾 淳子・横山 貴志 ｜ 発行：2025年11月28日
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.about-card, .feature-item, .questionnaire-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
